@@ -40,11 +40,11 @@ $statement3->closeCursor();
 <!-- the head section -->
 <head>
 <title>PHP CRUD</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="Sass/main.css">
 </head>
 <!-- the body section -->
 <body>
-<header><h1>PHP CRUD</h1></header>
+<header><h1>PlayStation 4 Games</h1></header>
 <main>
 <h1>Record List</h1>
 <aside>
@@ -54,6 +54,7 @@ $statement3->closeCursor();
 <ul>
 <?php foreach ($categories as $category) : ?>
 <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
+
 <?php echo $category['categoryName']; ?>
 </a>
 </li>
@@ -102,8 +103,6 @@ value="<?php echo $record['categoryID']; ?>">
 <p><a href="category_list.php">Edit Categories</a></p>
 </section>
 </main>
-<footer>
-<p>&copy; <?php echo date("Y"); ?> PHP CRUD, Inc.</p>
-</footer>
+<?php include 'footer/footer.php';?>
 </body>
 </html>

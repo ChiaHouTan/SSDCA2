@@ -17,7 +17,7 @@ $statement->closeCursor();
 </head>
 <!-- the body section -->
 <body>
-    <header><h1>PHP CRUD</h1></header>
+    <header><h1>PlayStation 4 Games</h1></header>
 
     <main>
         <h1>Add Record</h1>
@@ -54,8 +54,6 @@ $statement->closeCursor();
         </form>
         <p><a href="index.php">Homepage</a></p>
     </main>
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> PHP CRUD, Inc.</p>
-    </footer>
+    <?php include 'footer/footer.php';?>
 </body>
 </html>

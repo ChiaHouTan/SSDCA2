@@ -1,0 +1,9 @@
+// to check is the category exists or not
+SELECT CASE WHEN EXISTS(SELECT * FROM records where categoryID = 3) THEN 1 ELSE 0 END
+
+SELECT categoryName, CASE WHEN EXISTS
+             (SELECT *
+              FROM records
+              INNER JOIN categories ON categories.categoryID = records.categoryID
+              GROUP BY records.categoryID
+              ORDER BY categoryName) THEN 1 ELSE 0 END FROM categories

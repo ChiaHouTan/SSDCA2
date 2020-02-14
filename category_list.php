@@ -13,11 +13,11 @@
 <!-- the head section -->
 <head>
     <title>PHP CRUD</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="Sass/main.css">
 </head>
 <!-- the body section -->
 <body>
-    <header><h1>PHP CRUD</h1></header>
+    <header><h1>PlayStation 4 Games</h1></header>
     <main>
     <h1>Categories</h1>
     <table>
@@ -51,8 +51,6 @@
     <br>
     <p><a href="index.php">Homepage</a></p>
     </main>
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> PHP CRUD, Inc.</p>
-    </footer>
+    <?php include 'footer/footer.php';?>
 </body>
 </html>

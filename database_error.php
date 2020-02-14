@@ -3,14 +3,14 @@
 <!-- the head section -->
 <head>
     <title>My PHP CRUD application</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="Sass/main.css">
 </head>
 <!-- the body section -->
 <body>
     <header><h1>My PHP CRUD application</h1></header>
 
     <main>
-        <h1>Database Error</h1>
+        <h1>Database Error - Are You Trying To HACK Me?</h1>
         <p>Error message: <?php echo $error_message; ?></p>
         <p>&nbsp;</p>
     </main>
