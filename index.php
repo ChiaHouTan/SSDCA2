@@ -52,7 +52,7 @@ $statement3->closeCursor();
 <h2>Categories</h2>
 <nav>
 <ul>
-<?php foreach ($categories as $category) : ?>
+<?php foreach ($categories as $category) :?>
 <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
 
 <?php echo $category['categoryName']; ?>
