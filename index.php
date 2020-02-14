@@ -44,7 +44,7 @@ $statement3->closeCursor();
 </head>
 <!-- the body section -->
 <body>
-<header><h1>PlayStation 4 Games</h1></header>
+<header><h1>PHP CRUD</h1></header>
 <main>
 <h1>Record List</h1>
 <aside>
