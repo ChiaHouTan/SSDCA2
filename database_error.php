@@ -7,7 +7,7 @@
 </head>
 <!-- the body section -->
 <body>
-    <header><h1>My PHP CRUD application</h1></header>
+<?php include 'header_footer/header.php';?>
 
     <main>
         <h1>Database Error - Are You Trying To HACK Me?</h1>

@@ -7,11 +7,11 @@
 </head>
 <!-- the body section -->
 <body>
-    <header><h1>PlayStation 4 Games</h1></header>
+<?php include 'header_footer/header.php';?>
     <main>
         <h2 class="top">Error</h2>
         <p><?php echo $error; ?></p>
     </main>
-    <?php include 'footer/footer.php';?>
+    <?php include 'header_footer/footer.php';?>
 </body>
 </html>
