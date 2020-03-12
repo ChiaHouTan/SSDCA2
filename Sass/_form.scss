@@ -1,0 +1,23 @@
+/*Form Scss*/
+form {
+    margin: 0;
+}
+
+/********************************************************************
+* Additional styles for the record Manager application
+********************************************************************/
+#add_record_form {
+    margin: .5em 0 1em;
+}
+#add_record_form label {
+    width: 6em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    float: left;
+}
+#add_record_form input {
+    float: left;
+}
+#add_record_form input[text] {
+    width: 15em;
+}
