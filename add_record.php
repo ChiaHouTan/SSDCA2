@@ -4,6 +4,8 @@ $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $code = filter_input(INPUT_POST, 'code');
 $name = filter_input(INPUT_POST, 'name');
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$stock = filter_input(INPUT_POST, 'stock');
+$dateRelease = filter_input(INPUT_POST, 'dateRelease');
 // Validate inputs
 if ($category_id == null || $category_id == false ||
         $code == null || $name == null || $price == null || $price == false) {
@@ -54,14 +56,16 @@ if ($category_id == null || $category_id == false ||
     require_once('database.php');
     // Add the records to the database 
     $query = "INSERT INTO records
-                 (categoryID, code, name, price, image)
+                 (categoryID, code, name, price, image, stock, dateRelease)
               VALUES
-                 (:category_id, :code, :name, :price, :image)";
+                 (:category_id, :code, :name, :price, :image, :stock, :dateRelease)";
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->bindValue(':code', $code);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':price', $price);
+    $statement->bindValue(':stock', $stock);
+    $statement->bindValue(':dateRelease', $dateRelease);
     $statement->bindValue(':image', $image);
     $statement->execute();
     $statement->closeCursor();
