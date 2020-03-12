@@ -5,6 +5,8 @@ $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $code = filter_input(INPUT_POST, 'code');
 $name = filter_input(INPUT_POST, 'name');
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$stock = filter_input(INPUT_POST, 'stock');
+$dateRelease = filter_input(INPUT_POST, 'dateRelease');
 // Validate inputs
 if ($record_id == NULL || $record_id == FALSE || $category_id == NULL ||
 $category_id == FALSE || empty($code) || empty($name) ||
@@ -47,6 +49,8 @@ SET categoryID = :category_id,
 code = :code,
 name = :name,
 price = :price,
+stock = :stock,
+dateRelease = :dateRelease,
 image = :image
 WHERE recordID = :record_id';
 $statement = $db->prepare($query);
@@ -54,6 +58,8 @@ $statement->bindValue(':category_id', $category_id);
 $statement->bindValue(':code', $code);
 $statement->bindValue(':name', $name);
 $statement->bindValue(':price', $price);
+$statement->bindValue(':stock', $stock);
+$statement->bindValue(':dateRelease', $dateRelease);
 $statement->bindValue(':image', $image);
 $statement->bindValue(':record_id', $record_id);
 $statement->execute();
