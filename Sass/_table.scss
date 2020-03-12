@@ -1,0 +1,23 @@
+/*Table Scss*/
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    tr{
+        th{
+          text-align: center;   
+        }
+    }
+}
+
+.genreTable{
+    width: 400px;
+}
+
+td, th {
+    border: 1px dashed black;
+    padding: .2em .5em .2em .5em;
+    vertical-align: top;
+    text-align: left;
+}
