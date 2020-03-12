@@ -44,12 +44,22 @@ $statement3->closeCursor();
 </head>
 <!-- the body section -->
 <body>
-<header><h1>PHP CRUD</h1></header>
+
+    <!-- the Header -->
+<?php include 'header_footer/header.php';?>
 <main>
-<h1>Record List</h1>
+        <!-- the Image Zoom LightBox -->
+<div id="lb-back">
+      <div id="lb-img">
+
+      </div>
+    </div>
+<h1>PlayStation 4 Games List</h1>
 <aside>
+<!-- display a list of wishlist that add in the sidebar -->
+<p><a href="wishlist_form.php">Wishlist</a></p>
 <!-- display a list of categories in the sidebar-->
-<h2>Categories</h2>
+<h2>Genres</h2>
 <nav>
 <ul>
 <?php foreach ($categories as $category) :?>
@@ -71,38 +81,59 @@ $statement3->closeCursor();
 <th>Name</th>
 <th>Code</th>
 <th>Price</th>
+<th>Stock</th>
+<th>Release Date</th>
+<th>Wishlist Add</th>
 <th>Delete</th>
 <th>Edit</th>
 </tr>
 <?php foreach ($records as $record) : ?>
 <tr>
-<td><img src="image_uploads/<?php echo $record['image']; ?>" width="100px" height="100px" /></td>
+<td class="textCenter"><img class="zoomD" src="image_uploads/<?php echo $record['image']; ?>" width="auto" height="600px" /></td>
 <td><?php echo $record['name']; ?></td>
 <td><?php echo $record['code']; ?></td>
-<td><?php echo $record['price']; ?></td>
-<td><form action="delete_record.php" method="post"
+<td class="textRight"><?php echo $record['price']; ?></td>
+<td class="textRight"><?php echo $record['stock']; ?></td>
+<td class="textCenter"><?php echo $record['dateRelease']; ?></td>
+
+<!-- Add to WishList Button -->
+<td class="textCenter"><form action="add_wishlist.php" method="post"  
 id="delete_record_form">
 <input type="hidden" name="record_id"
 value="<?php echo $record['recordID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $record['categoryID']; ?>">
-<input type="submit" value="Delete">
+<input class="textBold" type="submit" value="Add to Wishlist">
 </form></td>
-<td><form action="edit_record_form.php" method="post"
+
+<td class="textCenter"><form action="delete_record.php" method="post"
 id="delete_record_form">
 <input type="hidden" name="record_id"
 value="<?php echo $record['recordID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $record['categoryID']; ?>">
-<input type="submit" value="Edit">
+<input class="textBold" type="submit" value="Delete">
+</form></td>
+<td class="textCenter"><form action="edit_record_form.php" method="post"
+id="delete_record_form">
+<input type="hidden" name="record_id"
+value="<?php echo $record['recordID']; ?>">
+<input type="hidden" name="category_id"
+value="<?php echo $record['categoryID']; ?>">
+<input class="textBold" type="submit" value="Edit">
 </form></td>
 </tr>
 <?php endforeach; ?>
 </table>
-<p><a href="add_record_form.php">Add Record</a></p>
-<p><a href="category_list.php">Edit Categories</a></p>
+<br>
+<button><a href="add_record_form.php">Add Game</a></button>
+<br><br>
+<button><a href="category_list.php">Edit Genres</a></button>
 </section>
 </main>
-<?php include 'footer/footer.php';?>
+<?php include 'header_footer/footer.php';?>
+<?php
+  echo"<script src='javaScript/imageZoom.js'></script>";
+?>
 </body>
 </html>
