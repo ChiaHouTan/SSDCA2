@@ -1,4 +1,33 @@
 <?php
+/**
+ * Start the session.
+ */
+session_start();
+
+/**
+ * Check if the user is logged in.
+ */
+if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
+    //User not logged in. Remove the element by CSS.  public
+    echo "<style>     
+          .hideAdmin {display: none;}
+          .hideUser {display: none;}
+          .hideLogOut {display: none;}
+          </style>";
+} else if($_SESSION['username'] != 'admin'){
+    //User logged in. Remove the element by CSS. only normal user 
+  echo "<style>     
+        .hideAdmin {display: none;}
+        .hideLogIn {display: none;}
+          </style>";
+}else{
+    //Admin logged in. Remove the element by CSS. only for ADMIN
+    echo "<style>     
+          .hideUser {display: none;}
+          .hideLogIn {display: none;}
+          </style>";
+}
+
 // Connect to the database
 require_once('database.php');
 // Set the default category to the ID of 1
@@ -57,7 +86,8 @@ $statement3->closeCursor();
 <h1>PlayStation 4 Games List</h1>
 <aside>
 <!-- display a list of wishlist that add in the sidebar -->
-<p><a href="wishlist_form.php">Wishlist</a></p>
+<p class="hideUser"><a href="wishlist_form.php">Wishlist</a></p>
+<p class="hideAdmin"><a href="displayUsers.php">Display Users</a></p>
 <!-- display a list of categories in the sidebar-->
 <h2>Genres</h2>
 <nav>
@@ -83,9 +113,9 @@ $statement3->closeCursor();
 <th>Price</th>
 <th>Stock</th>
 <th>Release Date</th>
-<th>Wishlist Add</th>
-<th>Delete</th>
-<th>Edit</th>
+<th class="hideUser">Wishlist Add</th>
+<th class="hideAdmin">Delete</th>
+<th class="hideAdmin">Edit</th>
 </tr>
 <?php foreach ($records as $record) : ?>
 <tr>
@@ -97,7 +127,7 @@ $statement3->closeCursor();
 <td class="textCenter"><?php echo $record['dateRelease']; ?></td>
 
 <!-- Add to WishList Button -->
-<td class="textCenter"><form action="add_wishlist.php" method="post"  
+<td class="textCenter hideUser"><form action="add_wishlist.php" method="post"  
 id="delete_record_form">
 <input type="hidden" name="record_id"
 value="<?php echo $record['recordID']; ?>">
@@ -106,7 +136,7 @@ value="<?php echo $record['categoryID']; ?>">
 <input class="textBold" type="submit" value="Add to Wishlist">
 </form></td>
 
-<td class="textCenter"><form action="delete_record.php" method="post"
+<td class="textCenter hideAdmin"><form action="delete_record.php" method="post"
 id="delete_record_form">
 <input type="hidden" name="record_id"
 value="<?php echo $record['recordID']; ?>">
@@ -114,7 +144,7 @@ value="<?php echo $record['recordID']; ?>">
 value="<?php echo $record['categoryID']; ?>">
 <input class="textBold" type="submit" value="Delete">
 </form></td>
-<td class="textCenter"><form action="edit_record_form.php" method="post"
+<td class="textCenter hideAdmin"><form action="edit_record_form.php" method="post"
 id="delete_record_form">
 <input type="hidden" name="record_id"
 value="<?php echo $record['recordID']; ?>">
@@ -126,9 +156,12 @@ value="<?php echo $record['categoryID']; ?>">
 <?php endforeach; ?>
 </table>
 <br>
-<button><a href="add_record_form.php">Add Game</a></button>
+<button class="hideAdmin"><a href="add_record_form.php">Add Game</a></button>
 <br><br>
-<button><a href="category_list.php">Edit Genres</a></button>
+<button class="hideAdmin"><a href="category_list.php">Edit Genres</a></button>
+<p class="hideLogOut"><a href="logout.php">Log out</a></p>
+<p class="hideLogIn"><a href="login.php">Log in</a></p>
+<p class="hideLogIn"><a href="register.php">Register</a></p>
 </section>
 </main>
 <?php include 'header_footer/footer.php';?>
