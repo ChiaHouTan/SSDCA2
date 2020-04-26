@@ -22,7 +22,7 @@ $statement4->closeCursor();
 <html>
 <!-- the head section -->
 <head>
-<title>PHP CRUD</title>
+<title>WishList</title>
 <link rel="stylesheet" type="text/css" href="Sass/main.css">
 </head>
 <!-- the body section -->
